@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>فاندا سوشي | Fanda Sushi</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;800&display=swap">
+<style>
+:root{--bg:#0A0A0A;--s1:#141414;--s2:#1C1C1C;--ac:#FF5E1E;--tx:#F5F5F5;--mu:#A1A1AA;--ln:#2a2a2a;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+*{box-sizing:border-box}
+html{scroll-padding-top:env(safe-area-inset-top,0px)}
+body{margin:0;background:var(--bg);color:var(--tx);font-family:'Cairo',system-ui,sans-serif;line-height:1.6}
+button,input,select{font:inherit;color:inherit}
+button{cursor:pointer}
+:focus-visible{outline:2px solid var(--ac);outline-offset:2px}
+header{padding:28px 16px 18px;text-align:center;background:radial-gradient(ellipse at top,#2a1006 0,var(--bg) 70%)}
+h1{margin:0;font-size:2.6rem;font-weight:800;letter-spacing:.02em}
+h1 span{color:var(--ac);text-shadow:0 0 24px #ff5e1e88}
+.slogan{color:var(--mu);margin:4px 0 12px}
+.status{display:inline-flex;align-items:center;gap:8px;padding:4px 14px;border:1px solid var(--ln);border-radius:99px;background:var(--s1);font-size:.9rem}
+.dot{width:9px;height:9px;border-radius:50%;background:#555}
+.open .dot{background:#22c55e;box-shadow:0 0 10px #22c55e}
+.closed .dot{background:#ef4444}
+nav{position:sticky;top:env(safe-area-inset-top,0px);z-index:5;display:flex;gap:8px;overflow-x:auto;padding:10px 16px;background:#0a0a0aee;backdrop-filter:blur(8px);border-bottom:1px solid var(--ln)}
+nav button{flex:none;padding:6px 16px;border-radius:99px;border:1px solid var(--ln);background:var(--s1);color:var(--mu)}
+nav button.on{background:var(--ac);border-color:var(--ac);color:#fff;box-shadow:0 0 16px #ff5e1e66}
+main{max-width:1000px;margin:0 auto;padding:16px 16px 110px}
+h2{font-size:1.25rem;margin:24px 0 10px;padding-inline-start:10px;border-inline-start:3px solid var(--ac)}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:12px}
+.card{background:var(--s1);border:1px solid var(--ln);border-radius:16px;padding:14px;text-align:start;display:flex;flex-direction:column;gap:6px;transition:transform .2s,border-color .2s}
+.card:hover{transform:translateY(-3px);border-color:var(--ac)}
+.card b{font-size:1.05rem;direction:ltr;text-align:start}
+.badge{align-self:flex-start;background:#ff5e1e22;color:var(--ac);border-radius:99px;padding:0 10px;font-size:.8rem}
+.ing{color:var(--mu);font-size:.85rem;direction:ltr;text-align:start}
+.price{margin-top:auto;font-weight:800;color:var(--ac);font-size:1.1rem}
+.empty{color:var(--mu);padding:30px;text-align:center;border:1px dashed var(--ln);border-radius:16px}
+.tags{display:flex;flex-wrap:wrap;gap:6px;direction:ltr}
+.tags span{background:var(--s2);border:1px solid var(--ln);border-radius:8px;padding:0 10px;font-size:.85rem}
+.btn{background:var(--ac);border:0;color:#fff;font-weight:800;padding:12px 18px;border-radius:12px;width:100%;box-shadow:0 0 18px #ff5e1e55}
+.btn:disabled{opacity:.5;box-shadow:none}
+.qty{display:flex;align-items:center;justify-content:center;gap:14px;margin:10px 0}
+.qty button{width:38px;height:38px;border-radius:50%;border:1px solid var(--ln);background:var(--s2);font-size:1.2rem}
+.cartbar{position:fixed;inset-inline:12px;bottom:calc(12px + env(safe-area-inset-bottom,0px));z-index:6;display:none;justify-content:space-between;align-items:center;max-width:600px;margin-inline:auto;background:var(--ac);border:0;border-radius:14px;padding:12px 18px;font-weight:800;color:#fff;box-shadow:0 6px 30px #ff5e1e66}
+.ov{position:fixed;inset:0;z-index:10;background:#000a;display:none;align-items:flex-end;justify-content:center}
+.ov.show{display:flex}
+.sheet{background:var(--s1);border:1px solid var(--ln);border-radius:20px 20px 0 0;width:100%;max-width:560px;max-height:92%;overflow:auto;padding:18px;animation:up .25s ease-out}
+@keyframes up{from{transform:translateY(40px);opacity:0}}
+@media(prefers-reduced-motion:reduce){.sheet{animation:none}.card{transition:none}}
+.row{display:flex;justify-content:space-between;gap:10px;align-items:center;padding:6px 0;border-bottom:1px solid var(--ln)}
+.row small{color:var(--mu)}
+.mini{display:flex;gap:6px;align-items:center}
+.mini button{width:28px;height:28px;border-radius:50%;border:1px solid var(--ln);background:var(--s2)}
+label{display:block;margin:10px 0 4px;color:var(--mu);font-size:.9rem}
+input[type=text],input[type=tel],select{width:100%;padding:10px 12px;background:var(--s2);border:1px solid var(--ln);border-radius:10px}
+.pay{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}
+.pay button{padding:10px 4px;border-radius:10px;border:1px solid var(--ln);background:var(--s2);font-size:.85rem}
+.pay button.on{border-color:var(--ac);background:#ff5e1e22}
+.note{background:var(--s2);border-radius:10px;padding:10px;margin-top:8px;font-size:.9rem;color:var(--mu)}
+.copy{background:var(--s1);border:1px solid var(--ac);color:var(--ac);border-radius:8px;padding:2px 12px}
+.tot{display:flex;justify-content:space-between;padding:3px 0}
+.tot.g{font-size:1.2rem;font-weight:800;color:var(--ac);border-top:1px solid var(--ln);margin-top:6px;padding-top:8px}
+.err{color:#f87171;font-size:.85rem;min-height:1.2em}
+.top{position:sticky;top:env(safe-area-inset-top,0px);z-index:7;display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:6px 18px;padding:10px 18px;background:#0a0a0af2;backdrop-filter:blur(10px);border-bottom:1px solid var(--ln)}
+.logo{font-weight:800;font-size:1.4rem;text-decoration:none;color:var(--tx)}.logo span{color:var(--ac)}
+.links{display:flex;gap:4px;overflow-x:auto}
+.links a{padding:6px 14px;border-radius:99px;color:var(--mu);text-decoration:none;white-space:nowrap}
+.links a:hover{color:var(--tx)}.links a.on{background:#ff5e1e22;color:var(--ac)}
+#tcart{position:relative;background:var(--s2);border:1px solid var(--ln);border-radius:12px;padding:6px 12px}
+#tcart i{position:absolute;top:-6px;inset-inline-start:-6px;background:var(--ac);color:#fff;border-radius:99px;min-width:20px;height:20px;font-size:.75rem;font-style:normal;display:grid;place-items:center}
+@media(max-width:640px){.links{order:3;width:100%}}
+nav{top:calc(58px + env(safe-area-inset-top,0px))}
+header{padding:72px 16px 56px;background:radial-gradient(circle at 50% 0,#ff5e1e33 0,transparent 55%),radial-gradient(circle at 50% 100%,#1c1c1c 0,var(--bg) 70%)}
+h1{font-size:clamp(3rem,11vw,6rem);line-height:1.1}
+.slogan{max-width:34ch;margin:12px auto 18px;font-size:1.05rem}
+.cta{display:inline-block;width:auto;padding:12px 30px;text-decoration:none;text-align:center}
+.cta.alt{background:transparent;border:1px solid var(--ac);box-shadow:none;color:var(--ac)}
+.hero-btns{display:flex;gap:10px;justify-content:center;flex-wrap:wrap;margin-top:22px}
+@media(prefers-reduced-motion:no-preference){header h1{animation:rise .9s ease-out}@keyframes rise{from{opacity:0;letter-spacing:.3em}}}
+.sec{max-width:1000px;margin:0 auto;padding:12px 16px 24px}
+.txt{color:var(--mu);max-width:60ch;font-size:1.05rem}
+.feat{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:12px}
+.feat div{background:var(--s1);border:1px solid var(--ln);border-radius:16px;padding:16px}
+.feat p{margin:4px 0 0;color:var(--mu)}
+.card{background:linear-gradient(160deg,var(--s2),var(--s1))}
+.card:hover{box-shadow:0 8px 28px #ff5e1e22}
+.areas{display:flex;flex-wrap:wrap;gap:8px}.areas span{background:var(--s2);border:1px solid var(--ln);border-radius:99px;padding:2px 14px}
+.ct{display:block;text-decoration:none;color:var(--tx)}.ct small{color:var(--mu)}
+footer{border-top:1px solid var(--ln);padding:22px 16px calc(90px + env(safe-area-inset-bottom,0px));text-align:center;color:var(--mu);font-size:.9rem}
+.art{background:radial-gradient(circle at 50% 85%,#ff5e1e26,transparent 70%),#101010;border-radius:12px;padding:8px}
+.art svg{width:100%;height:78px;display:block}
+.hero-art{display:flex;gap:18px;justify-content:center;margin-top:34px}
+.hero-art svg{width:clamp(90px,26vw,190px);height:auto;filter:drop-shadow(0 10px 26px #ff5e1e66)}
+body{background-image:radial-gradient(circle at 15% 8%,#ff5e1e12,transparent 38%),radial-gradient(circle at 90% 60%,#e5a93c0d,transparent 40%)}
+</style>
+</head>
+<body>
+<div class="top"><a class="logo" href="#/home">Fanda <span>Sushi</span></a><div class="links"><a href="#/home">الرئيسية</a><a href="#/menu">القائمة</a><a href="#/offers">العروض</a><a href="#/about">من نحن</a><a href="#/contact">تواصل معنا</a></div><button id="tcart" aria-label="السلة">🛒<i id="tc">0</i></button></div>
+<header id="hero">
+  <h1>Fanda <span>Sushi</span></h1>
+  <p class="slogan">#السوشى_كما_يجب_ان_يكون | أحلى طعم سوشي في الإسكندرية</p>
+  <div id="status" class="status"><i class="dot"></i><span></span></div>
+  <div class="hero-btns"><a class="btn cta" href="#/menu">اطلب الآن</a><a class="btn cta alt" href="#/offers">شاهد العروض</a></div>
+  <div class="hero-art" id="ha" aria-hidden="true"></div>
+</header>
+<nav id="tabs" aria-label="الأقسام"></nav>
+<main id="menu"></main><div id="pg"></div>
+<footer>© Fanda Sushi | الإسكندرية، مصر | 11:00 ص إلى 02:00 ص</footer>
+<button class="cartbar" id="cartbar"><span id="cbn"></span><span>عرض السلة</span><span id="cbt"></span></button>
+<div class="ov" id="ov"><div class="sheet" id="sheet" role="dialog" aria-modal="true"></div></div>
+
+<script>
+// ===== Editable config =====
+const WA="201123543946", WALLET="01123543946";
+// Delivery fees (EGP) are placeholders: edit to match the restaurant's real rates.
+const AREAS={"وسط البلد":40,"سموحة":35,"سيدي جابر":35,"لوران":40,"ميامي":50,"المنتزه":60,"العجمي":70};
+const CATS=[["all","الكل"],["combo","عروض الكومبو"],["fried","Fried Sushi"],["raw","Raw Sushi"],["extra","صوصات ومقبلات"]];
+const T={combo:"العروض الخاصة",raw:"السوشي الطازج",fried:"السوشي المقلي",extra:"صوصات ومقبلات"};
+// Prices for raw/fried items were not provided: PLACEHOLDERS, edit here.
+const I=(c,n,p,ing,pr)=>({c,n,p,ing:ing.split(", "),pr});
+const combos=[[12,180],[14,200],[16,240],[18,280],[22,320],[24,360],[50,665],[80,1040],[100,1300]].map(([p,pr],i)=>({c:"combo",n:"عرض "+(i+1)+": كومبو "+p+" قطعة",p,ing:["سوشي مشكل"],pr}));
+const items=[...combos,
+I("raw","KING CRAB",4,"panko crab, colosseum, crab tartar",100),I("raw","PHILADELPHIA",4,"salmon smoke, cucumber, avocado, cheese",110),
+I("raw","CALIFORNIA",4,"crab, cucumber, cheese, sesame",90),I("raw","HOT FANDA",4,"shrimp, crab tartar, spicy mayo",100),
+I("raw","AUR SHRIMP",4,"shrimp, avocado, cucumber, teriyaki",100),I("raw","SPICY SALMON",4,"panko salmon, crab, sriracha",110),
+I("raw","CRISPY SHRIMP",4,"shrimp, crispy rice, teriyaki",100),I("raw","DYNAMITE SALMON",6,"crab, salmon, cheese",150),
+I("raw","CRISPY BERMUDA",6,"shrimp, crab, cheese",140),I("raw","DYNAMITE SHRIMP",6,"shrimp, cucumber, cheese",140),
+I("fried","SPICY LIMON FIRE",6,"salmon, shrimp, cheese, spicy mayo",160),I("fried","FANDA ROLL",6,"crab, shrimp, cheese, teriyaki",150),
+I("fried","HOT DYNAMITE ROLL",6,"salmon tartar, crab, spicy mayo",160),I("fried","HELLOWEEN ROLL",6,"shrimp, crab, salmon, sriracha",160),
+I("fried","KING CRAB FRIED",6,"shrimp, crab, salmon, cheese",165),I("fried","BARAMODA",6,"shrimp, crab, spicy mayo",150),
+I("fried","COVER SHRIMP",4,"shrimp panko, cheese, teriyaki",110),I("fried","CRANCHY SHRIMP",4,"salmon, shrimp, cheese, spicy mayo",115),
+I("fried","CHUTORO ROLL",4,"salmon, crab, cheese, sriracha",110),I("fried","SAKA ROLL",4,"shrimp tartar, crab, Japanese sauce",105),
+I("extra","صوص ترياكي",0,"صوص إضافي",30),I("extra","صوص صويا",0,"صوص إضافي",20),I("extra","سبايسي مايو",0,"صوص إضافي",30),I("extra","وسابي",0,"صوص إضافي",20),I("extra","جنزبيل",0,"صوص إضافي",20)
+].map((x,i)=>({...x,id:i}));
+
+// ===== State =====
+let cat="all", cart={}, pay="cod", receipt=null, receiptFile=null;
+try{cart=JSON.parse(localStorage.getItem("fanda-cart")||"{}")}catch(e){}
+const $=s=>document.querySelector(s);
+const save=()=>{try{localStorage.setItem("fanda-cart",JSON.stringify(cart))}catch(e){}};
+const lines=()=>Object.entries(cart).map(([id,q])=>({it:items[id],q})).filter(l=>l.it&&l.q>0);
+const sub=()=>lines().reduce((s,l)=>s+l.it.pr*l.q,0);
+const count=()=>lines().reduce((s,l)=>s+l.q,0);
+const esc=s=>String(s).replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+
+// ===== Status =====
+function status(){
+  const h=+new Date().toLocaleString("en-US",{timeZone:"Africa/Cairo",hour:"numeric",hour12:false})%24;
+  const open=h>=11||h<2, el=$("#status");
+  el.className="status "+(open?"open":"closed");
+  el.lastChild.textContent=open?"المطعم مفتوح الآن":"المطعم مغلق حالياً";
+}
+
+// ===== Menu =====
+function tabs(){
+  $("#tabs").innerHTML=CATS.map(([k,l])=>`<button class="${k===cat?"on":""}" data-c="${k}">${l}</button>`).join("");
+}
+function menu(){
+  const keys=cat==="all"?["combo","fried","raw","extra"]:[cat];
+  $("#menu").innerHTML=keys.map(k=>{
+    const list=items.filter(i=>i.c===k);
+    return `<h2>${T[k]}</h2>`+(list.length?`<div class="grid">${list.map(i=>`
+      <button class="card" data-id="${i.id}">${art(i)}<span class="badge">${i.p?i.p+" pcs":"صوص"}</span><b>${esc(i.n)}</b>
+      <span class="ing">${i.c==="combo"?"":esc(i.ing.join(", "))}</span><span class="price">${i.pr} ج.م</span></button>`).join("")}</div>`
+      :`<div class="empty">الصوصات والمقبلات ستتوفر قريباً</div>`);
+  }).join("");
+}
+function bar(){
+  const n=count(), b=$("#cartbar");
+  b.style.display=n?"flex":"none";
+  $("#cbn").textContent=n+" صنف"; $("#cbt").textContent=sub()+" ج.م"; $("#tc").textContent=n;
+}
+function open(html){$("#sheet").innerHTML=html;$("#ov").classList.add("show")}
+function close(){$("#ov").classList.remove("show")}
+
+// ===== Item modal =====
+function detail(id){
+  const it=items[id]; let q=1;
+  const draw=()=>{
+    open(`<h2 style="margin-top:0;direction:ltr;text-align:start">${esc(it.n)}</h2>
+    ${art(it)}<span class="badge">${it.p?it.p+" pcs":"صوص"}</span>
+    <div class="tags" style="margin:10px 0">${it.ing.map(x=>`<span>${esc(x)}</span>`).join("")}</div>
+    <div class="price">${it.pr} ج.م</div>
+    <div class="qty"><button data-d="1" aria-label="زيادة">+</button><b>${q}</b><button data-d="-1" aria-label="نقصان">−</button></div>
+    <button class="btn" id="add">أضف للسلة · ${it.pr*q} ج.م</button>`);
+    $("#sheet").onclick=e=>{
+      const d=e.target.closest("[data-d]");
+      if(d){q=Math.max(1,q+ +d.dataset.d);draw()}
+      if(e.target.closest("#add")){cart[id]=(cart[id]||0)+q;save();bar();close()}
+    };
+  };
+  draw();
+}
+
+// ===== Cart + checkout =====
+function checkout(){
+  if(!count()){open('<h2 style="margin-top:0">سلتك فارغة</h2><p class="txt">اختر أصنافك من القائمة ثم عد لإتمام الطلب.</p><a class="btn cta" style="display:block" href="#/menu">تصفح القائمة</a>');return}
+  const area=$("#area")?.value||"", fee=area?AREAS[area]:0;
+  const keep=["#nm","#ph","#ad"].map(s=>$(s)?.value||"");
+  const L=lines();
+  open(`<h2 style="margin-top:0">سلتك</h2>
+  ${L.map(l=>`<div class="row"><div><b>${esc(l.it.n)}</b><br><small>${l.it.pr} ج.م</small></div>
+    <div class="mini"><button data-q="${l.it.id}" data-d="1">+</button><b>${l.q}</b><button data-q="${l.it.id}" data-d="-1">−</button></div></div>`).join("")}
+  <label>الاسم</label><input type="text" id="nm" autocomplete="name">
+  <label>رقم الهاتف</label><input type="tel" id="ph" autocomplete="tel" inputmode="tel">
+  <label>العنوان بالتفصيل</label><input type="text" id="ad" autocomplete="street-address">
+  <label>المنطقة</label><select id="area"><option value="">اختر المنطقة</option>
+    ${Object.entries(AREAS).map(([a,f])=>`<option value="${a}" ${a===area?"selected":""}>${a} (${f} ج.م)</option>`).join("")}</select>
+  <label>طريقة الدفع</label>
+  <div class="pay"><button data-p="cod" class="${pay==="cod"?"on":""}">الدفع عند الاستلام</button>
+  <button data-p="vf" class="${pay==="vf"?"on":""}">فودافون كاش</button>
+  <button data-p="fw" class="${pay==="fw"?"on":""}">فوري</button></div>
+  ${pay==="vf"?`<div class="note">حوّل المبلغ إلى المحفظة: <b dir="ltr">${WALLET}</b> <button class="copy" id="cp">نسخ</button>
+    <label>صورة إيصال التحويل</label><input type="file" id="rc" accept="image/*">
+    <div>${receipt?"تم اختيار: "+esc(receipt):""}</div></div>`:""}
+  ${pay==="fw"?`<div class="note">ادفع من أقرب منفذ فوري أو من التطبيق، واذكر اسمك ورقم هاتفك كمرجع، وأرسل لنا رقم العملية على واتساب مع الطلب.</div>`:""}
+  <div style="margin-top:12px"><div class="tot"><span>المجموع الفرعي</span><span>${sub()} ج.م</span></div>
+  <div class="tot"><span>التوصيل</span><span>${area?fee+" ج.م":"اختر المنطقة"}</span></div>
+  <div class="tot g"><span>الإجمالي النهائي</span><span>${sub()+fee} ج.م</span></div></div>
+  <div class="err" id="err"></div>
+  <button class="btn" id="send">إرسال الطلب عبر واتساب</button>`);
+  ["#nm","#ph","#ad"].forEach((s,i)=>{$(s).value=keep[i]});
+}
+function send(){
+  const nm=$("#nm").value.trim(),ph=$("#ph").value.trim(),ad=$("#ad").value.trim(),area=$("#area").value;
+  const err=m=>{$("#err").textContent=m};
+  if(!nm||!ph||!ad)return err("أدخل الاسم ورقم الهاتف والعنوان.");
+  if(!/^[0-9+\u0660-\u0669 ]{8,15}$/.test(ph))return err("رقم الهاتف غير صحيح.");
+  if(!area)return err("اختر منطقة التوصيل.");
+  const fee=AREAS[area],s=sub();
+  const pm={cod:"الدفع عند الاستلام",vf:"فودافون كاش",fw:"فوري"}[pay];
+  const msg=`🍣 طلب جديد من موقع Fanda Sushi! 🍣
+---------------------------------
+👤 العميل: ${nm}
+📞 الهاتف: ${ph}
+📍 العنوان: ${ad} - منطقة: ${area}
+💳 طريقة الدفع: ${pm}
+
+📝 تفاصيل الأصناف:
+${lines().map(l=>`- ${l.it.n} × ${l.q} = ${l.it.pr*l.q} ج.م`).join("\n")}
+
+💵 الحساب الإجمالي:
+- المجموع الفرعي: ${s} ج.م
+- التوصيل: ${fee} ج.م
+💰 الإجمالي النهائي: ${s+fee} ج.م
+
+📎 إيصال الدفع: ${pay==="vf"&&receipt?"مرفق في الشات":"لا يوجد"}
+⏰ وقت الطلب: ${new Date().toLocaleString("ar-EG",{timeZone:"Africa/Cairo"})}`;
+  if(pay==="vf"&&receiptFile&&navigator.canShare&&navigator.canShare({files:[receiptFile]})){
+    navigator.share({files:[receiptFile],text:msg}).catch(()=>{});
+    $("#err").textContent="اختر واتساب ثم محادثة فاندا سوشي ("+WALLET+") لإرسال الإيصال مع الطلب.";
+    return;
+  }
+  const url="https://api.whatsapp.com/send?phone="+WA+"&text="+encodeURIComponent(msg);
+  const a=document.createElement("a");a.href=url;a.target="_blank";a.rel="noopener";document.body.appendChild(a);a.click();a.remove();
+  window._wa=msg;
+  $("#err").innerHTML=(pay==="vf"&&receipt?"أرفق صورة الإيصال في المحادثة بعد فتح واتساب.<br>":"")+'إن لم يفتح واتساب: <a href="'+url+'" target="_blank" rel="noopener" style="color:var(--ac)">اضغط هنا</a> أو <button class="copy" id="cm">انسخ الرسالة</button> ثم الصقها في واتساب.';
+}
+
+// ===== Events =====
+document.addEventListener("click",e=>{
+  const t=e.target;
+  if(t.id==="ov")return close();
+  const c=t.closest("#tabs button"); if(c){cat=c.dataset.c;tabs();menu();return}
+  const card=t.closest(".card"); if(card)return detail(+card.dataset.id);
+  if(t.closest("#cartbar"))return checkout();
+  const q=t.closest("[data-q]");
+  if(q){const id=q.dataset.q;cart[id]=Math.max(0,(cart[id]||0)+ +q.dataset.d);if(!cart[id])delete cart[id];save();bar();return checkout()}
+  const p=t.closest("[data-p]"); if(p){pay=p.dataset.p;return checkout()}
+  if(t.id==="cp"){try{navigator.clipboard.writeText(WALLET)}catch(x){}t.textContent="تم النسخ"}
+  if(t.id==="send")send();
+  if(t.id==="cm"){try{navigator.clipboard.writeText(window._wa)}catch(x){}t.textContent="تم النسخ"}
+});
+document.addEventListener("change",e=>{
+  if(e.target.id==="area")checkout();
+  if(e.target.id==="rc"){receiptFile=e.target.files[0]||null;receipt=receiptFile?receiptFile.name:null;checkout()}
+});
+document.addEventListener("keydown",e=>{if(e.key==="Escape")close()});
+
+// ===== Pages / router =====
+const cardH=i=>`<button class="card" data-id="${i.id}">${art(i)}<span class="badge">${i.p?i.p+" pcs":"صوص"}</span><b>${esc(i.n)}</b><span class="ing">${i.c==="combo"?"":esc(i.ing.join(", "))}</span><span class="price">${i.pr} ج.م</span></button>`;
+const wrap=(t,b)=>`<section class="sec"><h2 style="margin-top:0">${t}</h2>${b}</section>`;
+const PG={
+home:()=>wrap("الأكثر طلباً",`<div class="grid">${[0,3,6].map(i=>cardH(items[i])).join("")}</div><p><a class="btn cta" href="#/menu">شاهد القائمة كاملة</a></p>`)+wrap("صوصات إضافية",`<div class="grid">${items.filter(i=>i.c==="extra").map(cardH).join("")}</div>`)+wrap("لماذا فاندا؟",`<div class="feat"><div><b>🍣 تنوع كبير</b><p>سوشي طازج وسوشي مقلي بنكهات متعددة.</p></div><div><b>🛵 توصيل</b><p>نوصّل داخل الإسكندرية حسب المنطقة.</p></div><div><b>💳 دفع مرن</b><p>كاش أو فودافون كاش أو فوري.</p></div></div>`),
+offers:()=>wrap("العروض الخاصة",`<p class="txt">كومبوهات من 12 حتى 100 قطعة تناسب كل مناسبة.</p><div class="grid">${combos.map((c,i)=>cardH(items[i])).join("")}</div>`),
+about:()=>wrap("من نحن",`<p class="txt">فاندا سوشي مطعم سوشي في الإسكندرية، وشعارنا «السوشي كما يجب أن يكون». نقدم السوشي الطازج والمقلي وكومبوهات تبدأ من 12 قطعة وتصل إلى 100 قطعة للتجمعات والمناسبات.</p>`)+wrap("طرق الدفع",`<div class="feat"><div><b>الدفع عند الاستلام</b></div><div><b>فودافون كاش</b><p dir="ltr">${WALLET}</p></div><div><b>فوري</b></div></div>`),
+contact:()=>wrap("تواصل معنا",`<div class="feat"><a class="ct feat-a" href="https://wa.me/${WA}" target="_blank" rel="noopener"><div><b>💬 واتساب</b><p dir="ltr">+${WA}</p></div></a><a class="ct" href="tel:+${WA}"><div><b>📞 اتصل بنا</b><p dir="ltr">${WALLET}</p></div></a><div><b>🕚 ساعات العمل</b><p>يومياً من 11:00 ص إلى 02:00 ص</p></div></div>`)+wrap("مناطق التوصيل",`<div class="areas">${Object.entries(AREAS).map(([a,f])=>`<span>${a}: ${f} ج.م</span>`).join("")}</div>`)
+};
+function route(){
+  const r=location.hash.replace("#/","")||"home", m=r==="menu";
+  close();
+  $("#hero").style.display=r==="home"?"":"none";
+  $("#tabs").style.display=m?"":"none";
+  $("#menu").style.display=m?"":"none";
+  $("#pg").style.display=m?"none":"";
+  $("#pg").innerHTML=(PG[r]||PG.home)();
+  document.querySelectorAll(".links a").forEach(a=>a.classList.toggle("on",a.getAttribute("href")==="#/"+r));
+  scrollTo(0,0);
+}
+const SC={"صوص ترياكي":"#7a3b12","صوص صويا":"#2b1a12","سبايسي مايو":"#ff9d5c","وسابي":"#8bc34a","جنزبيل":"#f3b8c0"};
+const nig=(x,f)=>`<g transform="translate(${x} 0)"><ellipse cx="30" cy="40" rx="24" ry="11" fill="#f5f5f0"/><path d="M6 36Q30 10 54 36Q30 31 6 36Z" fill="${f}"/><path d="M16 30l6 5M28 24l5 8M40 28l3 6" stroke="#fff" stroke-opacity=".5" stroke-width="1.5"/></g>`;
+const svg=(k,c)=>`<svg viewBox="0 0 100 60">`+(k==="maki"?[28,72].map(x=>`<circle cx="${x}" cy="30" r="22" fill="#161616"/><circle cx="${x}" cy="30" r="17" fill="#f5f5f0"/><circle cx="${x}" cy="30" r="8" fill="${c}"/><circle cx="${x-3}" cy="27" r="2.5" fill="#fff" opacity=".4"/>`).join(""):k==="nigiri"?nig(-2,"#ff7a4d")+nig(42,"#ff9d5c"):`<ellipse cx="50" cy="38" rx="28" ry="11" fill="#2a2a2a"/><ellipse cx="50" cy="34" rx="24" ry="8" fill="${c}"/><ellipse cx="42" cy="32" rx="8" ry="2" fill="#fff" opacity=".3"/>`)+`</svg>`;
+const art=i=>`<div class="art">${svg(i.c==="combo"?"nigiri":i.c==="extra"?"sauce":"maki",i.c==="extra"?SC[i.n]:i.c==="fried"?"#d9962b":"#ff7a4d")}</div>`;
+$("#ha").innerHTML=svg("maki","#ff7a4d")+svg("nigiri")+svg("maki","#d9962b");
+menu();
+addEventListener("hashchange",route);
+$("#tcart").onclick=checkout;
+status();setInterval(status,60000);tabs();menu();bar();route();
+</script>
+</body>
+</html>
