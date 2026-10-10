@@ -5,8 +5,10 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>فاندا سوشي | Fanda Sushi</title>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;800&display=swap">
+<link rel="preconnect" href="https://images.unsplash.com">
+<link rel="preconnect" href="https://images.pexels.com">
 <style>
-:root{--bg:#0A0A0A;--s1:#141414;--s2:#1C1C1C;--ac:#FF5E1E;--tx:#F5F5F5;--mu:#A1A1AA;--ln:#2a2a2a;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+:root{--bg:#FFF7EC;--s1:#FFFFFF;--s2:#FFEBD2;--ac:#FF4D2E;--tx:#3B1F14;--mu:#8A6A5A;--gold:#E07A00;--ln:#F3D9BE;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
 *{box-sizing:border-box}
 html{scroll-padding-top:env(safe-area-inset-top,0px)}
 body{margin:0;background:var(--bg);color:var(--tx);font-family:'Cairo',system-ui,sans-serif;line-height:1.6}
@@ -15,32 +17,32 @@ button{cursor:pointer}
 :focus-visible{outline:2px solid var(--ac);outline-offset:2px}
 header{padding:28px 16px 18px;text-align:center;background:radial-gradient(ellipse at top,#2a1006 0,var(--bg) 70%)}
 h1{margin:0;font-size:2.6rem;font-weight:800;letter-spacing:.02em}
-h1 span{color:var(--ac);text-shadow:0 0 24px #ff5e1e88}
+h1 span{color:var(--ac);text-shadow:0 0 24px #ff4d2e88}
 .slogan{color:var(--mu);margin:4px 0 12px}
 .status{display:inline-flex;align-items:center;gap:8px;padding:4px 14px;border:1px solid var(--ln);border-radius:99px;background:var(--s1);font-size:.9rem}
 .dot{width:9px;height:9px;border-radius:50%;background:#555}
 .open .dot{background:#22c55e;box-shadow:0 0 10px #22c55e}
 .closed .dot{background:#ef4444}
-nav{position:sticky;top:env(safe-area-inset-top,0px);z-index:5;display:flex;gap:8px;overflow-x:auto;padding:10px 16px;background:#0a0a0aee;backdrop-filter:blur(8px);border-bottom:1px solid var(--ln)}
+nav{position:sticky;top:env(safe-area-inset-top,0px);z-index:5;display:flex;gap:8px;overflow-x:auto;padding:10px 16px;background:#fff7ecee;backdrop-filter:blur(8px);border-bottom:1px solid var(--ln)}
 nav button{flex:none;padding:6px 16px;border-radius:99px;border:1px solid var(--ln);background:var(--s1);color:var(--mu)}
-nav button.on{background:var(--ac);border-color:var(--ac);color:#fff;box-shadow:0 0 16px #ff5e1e66}
+nav button.on{background:var(--ac);border-color:var(--ac);color:#fff;box-shadow:0 0 16px #ff4d2e66}
 main{max-width:1000px;margin:0 auto;padding:16px 16px 110px}
 h2{font-size:1.25rem;margin:24px 0 10px;padding-inline-start:10px;border-inline-start:3px solid var(--ac)}
 .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:12px}
 .card{background:var(--s1);border:1px solid var(--ln);border-radius:16px;padding:14px;text-align:start;display:flex;flex-direction:column;gap:6px;transition:transform .2s,border-color .2s}
 .card:hover{transform:translateY(-3px);border-color:var(--ac)}
 .card b{font-size:1.05rem;direction:ltr;text-align:start}
-.badge{align-self:flex-start;background:#ff5e1e22;color:var(--ac);border-radius:99px;padding:0 10px;font-size:.8rem}
+.badge{align-self:flex-start;background:#ff4d2e22;color:var(--ac);border-radius:99px;padding:0 10px;font-size:.8rem}
 .ing{color:var(--mu);font-size:.85rem;direction:ltr;text-align:start}
 .price{margin-top:auto;font-weight:800;color:var(--ac);font-size:1.1rem}
 .empty{color:var(--mu);padding:30px;text-align:center;border:1px dashed var(--ln);border-radius:16px}
 .tags{display:flex;flex-wrap:wrap;gap:6px;direction:ltr}
 .tags span{background:var(--s2);border:1px solid var(--ln);border-radius:8px;padding:0 10px;font-size:.85rem}
-.btn{background:var(--ac);border:0;color:#fff;font-weight:800;padding:12px 18px;border-radius:12px;width:100%;box-shadow:0 0 18px #ff5e1e55}
+.btn{background:var(--ac);border:0;color:#fff;font-weight:800;padding:12px 18px;border-radius:12px;width:100%;box-shadow:0 0 18px #ff4d2e55}
 .btn:disabled{opacity:.5;box-shadow:none}
 .qty{display:flex;align-items:center;justify-content:center;gap:14px;margin:10px 0}
 .qty button{width:38px;height:38px;border-radius:50%;border:1px solid var(--ln);background:var(--s2);font-size:1.2rem}
-.cartbar{position:fixed;inset-inline:12px;bottom:calc(12px + env(safe-area-inset-bottom,0px));z-index:6;display:none;justify-content:space-between;align-items:center;max-width:600px;margin-inline:auto;background:var(--ac);border:0;border-radius:14px;padding:12px 18px;font-weight:800;color:#fff;box-shadow:0 6px 30px #ff5e1e66}
+.cartbar{position:fixed;inset-inline:12px;bottom:calc(12px + env(safe-area-inset-bottom,0px));z-index:6;display:none;justify-content:space-between;align-items:center;max-width:600px;margin-inline:auto;background:var(--ac);border:0;border-radius:14px;padding:12px 18px;font-weight:800;color:#fff;box-shadow:0 6px 30px #ff4d2e66}
 .ov{position:fixed;inset:0;z-index:10;background:#000a;display:none;align-items:flex-end;justify-content:center}
 .ov.show{display:flex}
 .sheet{background:var(--s1);border:1px solid var(--ln);border-radius:20px 20px 0 0;width:100%;max-width:560px;max-height:92%;overflow:auto;padding:18px;animation:up .25s ease-out}
@@ -54,22 +56,22 @@ label{display:block;margin:10px 0 4px;color:var(--mu);font-size:.9rem}
 input[type=text],input[type=tel],select{width:100%;padding:10px 12px;background:var(--s2);border:1px solid var(--ln);border-radius:10px}
 .pay{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}
 .pay button{padding:10px 4px;border-radius:10px;border:1px solid var(--ln);background:var(--s2);font-size:.85rem}
-.pay button.on{border-color:var(--ac);background:#ff5e1e22}
+.pay button.on{border-color:var(--ac);background:#ff4d2e22}
 .note{background:var(--s2);border-radius:10px;padding:10px;margin-top:8px;font-size:.9rem;color:var(--mu)}
 .copy{background:var(--s1);border:1px solid var(--ac);color:var(--ac);border-radius:8px;padding:2px 12px}
 .tot{display:flex;justify-content:space-between;padding:3px 0}
 .tot.g{font-size:1.2rem;font-weight:800;color:var(--ac);border-top:1px solid var(--ln);margin-top:6px;padding-top:8px}
 .err{color:#f87171;font-size:.85rem;min-height:1.2em}
-.top{position:sticky;top:env(safe-area-inset-top,0px);z-index:7;display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:6px 18px;padding:10px 18px;background:#0a0a0af2;backdrop-filter:blur(10px);border-bottom:1px solid var(--ln)}
+.top{position:sticky;top:env(safe-area-inset-top,0px);z-index:7;display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:6px 18px;padding:10px 18px;background:#fff7ecf2;backdrop-filter:blur(10px);border-bottom:1px solid var(--ln)}
 .logo{font-weight:800;font-size:1.4rem;text-decoration:none;color:var(--tx)}.logo span{color:var(--ac)}
 .links{display:flex;gap:4px;overflow-x:auto}
 .links a{padding:6px 14px;border-radius:99px;color:var(--mu);text-decoration:none;white-space:nowrap}
-.links a:hover{color:var(--tx)}.links a.on{background:#ff5e1e22;color:var(--ac)}
+.links a:hover{color:var(--tx)}.links a.on{background:#ff4d2e22;color:var(--ac)}
 #tcart{position:relative;background:var(--s2);border:1px solid var(--ln);border-radius:12px;padding:6px 12px}
 #tcart i{position:absolute;top:-6px;inset-inline-start:-6px;background:var(--ac);color:#fff;border-radius:99px;min-width:20px;height:20px;font-size:.75rem;font-style:normal;display:grid;place-items:center}
 @media(max-width:640px){.links{order:3;width:100%}}
 nav{top:calc(58px + env(safe-area-inset-top,0px))}
-header{padding:72px 16px 56px;background:radial-gradient(circle at 50% 0,#ff5e1e33 0,transparent 55%),radial-gradient(circle at 50% 100%,#1c1c1c 0,var(--bg) 70%)}
+header{padding:72px 16px 56px;background:radial-gradient(circle at 50% 0,#ff4d2e33 0,transparent 55%),radial-gradient(circle at 50% 100%,#1c1c1c 0,var(--bg) 70%)}
 h1{font-size:clamp(3rem,11vw,6rem);line-height:1.1}
 .slogan{max-width:34ch;margin:12px auto 18px;font-size:1.05rem}
 .cta{display:inline-block;width:auto;padding:12px 30px;text-decoration:none;text-align:center}
@@ -82,15 +84,57 @@ h1{font-size:clamp(3rem,11vw,6rem);line-height:1.1}
 .feat div{background:var(--s1);border:1px solid var(--ln);border-radius:16px;padding:16px}
 .feat p{margin:4px 0 0;color:var(--mu)}
 .card{background:linear-gradient(160deg,var(--s2),var(--s1))}
-.card:hover{box-shadow:0 8px 28px #ff5e1e22}
+.card:hover{box-shadow:0 8px 28px #ff4d2e22}
 .areas{display:flex;flex-wrap:wrap;gap:8px}.areas span{background:var(--s2);border:1px solid var(--ln);border-radius:99px;padding:2px 14px}
 .ct{display:block;text-decoration:none;color:var(--tx)}.ct small{color:var(--mu)}
 footer{border-top:1px solid var(--ln);padding:22px 16px calc(90px + env(safe-area-inset-bottom,0px));text-align:center;color:var(--mu);font-size:.9rem}
-.art{background:radial-gradient(circle at 50% 85%,#ff5e1e26,transparent 70%),#101010;border-radius:12px;padding:8px}
-.art svg{width:100%;height:78px;display:block}
+.art{background:radial-gradient(circle at 50% 85%,#ff4d2e26,transparent 70%),#FFEBD2;border-radius:12px;padding:8px}
+.art svg{width:100%;height:108px;display:block}
 .hero-art{display:flex;gap:18px;justify-content:center;margin-top:34px}
-.hero-art svg{width:clamp(90px,26vw,190px);height:auto;filter:drop-shadow(0 10px 26px #ff5e1e66)}
-body{background-image:radial-gradient(circle at 15% 8%,#ff5e1e12,transparent 38%),radial-gradient(circle at 90% 60%,#e5a93c0d,transparent 40%)}
+.hero-art svg{width:clamp(90px,26vw,190px);height:auto;filter:drop-shadow(0 10px 26px #ff4d2e66)}
+body{background-image:radial-gradient(circle at 15% 8%,#ff4d2e12,transparent 38%),radial-gradient(circle at 90% 60%,#e5a93c0d,transparent 40%)}
+.price{color:var(--gold)}
+.btn,.cartbar,nav button.on{background:linear-gradient(135deg,#ff4d2e,#ff7a1a)}
+.cta.alt{background:transparent}
+.badge{background:#ffb22e22;color:var(--gold)}
+.links a.on{color:var(--gold)}
+:root{--p1:url('https://images.unsplash.com/photo-1764183122524-974ccfb709fd?auto=format&fit=crop&w=1600&h=1200&q=90');--p2:url('https://images.unsplash.com/photo-1744360515510-db7bf0f6def8?auto=format&fit=crop&w=1600&h=1200&q=90');--p3:url('https://images.pexels.com/photos/12706243/pexels-photo-12706243.jpeg?auto=compress&cs=tinysrgb&w=1600&h=1200&fit=crop');--p4:url('https://images.pexels.com/photos/3622479/pexels-photo-3622479.jpeg?auto=compress&cs=tinysrgb&w=1600&h=1200&fit=crop');--p5:url('https://images.pexels.com/photos/31393439/pexels-photo-31393439.jpeg?auto=compress&cs=tinysrgb&w=2400&h=1350&fit=crop');--p6:url('https://images.pexels.com/photos/28992211/pexels-photo-28992211.jpeg?auto=compress&cs=tinysrgb&w=2400&h=1350&fit=crop')}
+header{background:linear-gradient(180deg,rgba(20,11,8,.3),rgba(20,11,8,.72)),radial-gradient(ellipse at 50% 42%,rgba(20,11,8,.55) 0,transparent 68%),var(--p5) center/cover no-repeat}
+header h1,.slogan{text-shadow:0 2px 18px #000d}
+.slogan{color:#fff}
+.hero-art{display:none}
+.photos{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.ph{aspect-ratio:4/3;border-radius:20px;background-position:center;background-size:cover;position:relative;overflow:hidden;box-shadow:0 12px 32px #000a;border:1px solid var(--ln)}
+.ph.p1{background-image:var(--p1)}.ph.p2{background-image:var(--p2)}
+.ph span{position:absolute;inset-inline:0;bottom:0;padding:30px 16px 12px;background:linear-gradient(transparent,#140b08f0);font-weight:800;font-size:1.1rem}
+@media(max-width:520px){.photos{grid-template-columns:1fr}}
+.card{border-radius:20px}.card:hover{box-shadow:0 10px 30px #ff4d2e33}
+h2{border-image:linear-gradient(#ff4d2e,#ffb22e) 1}
+header{background:linear-gradient(180deg,rgba(30,10,4,.22),rgba(30,10,4,.5)),radial-gradient(ellipse at 50% 42%,rgba(30,10,4,.35) 0,transparent 68%),var(--p1) center/cover no-repeat}
+header h1,.slogan{color:#fff}
+.status{color:var(--tx)}
+.top{box-shadow:0 2px 14px #ff4d2e1f}
+.card,.feat div{box-shadow:0 4px 16px #c9702a14}
+.sheet{box-shadow:0 -10px 40px #3b1f1433}
+.ov{background:#3b1f1488}
+footer{min-height:300px;display:flex;align-items:flex-end;justify-content:center;color:#fff;font-weight:600;text-shadow:0 2px 12px #000c;background:linear-gradient(rgba(30,10,4,.15),rgba(30,10,4,.6)),var(--p6) center bottom/cover no-repeat;border-top:0}
+.tiles{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:12px}
+.tile{position:relative;aspect-ratio:4/3;border:0;border-radius:22px;overflow:hidden;background-size:cover;background-position:center;color:#fff;display:flex;align-items:flex-end;padding:14px;font-weight:800;font-size:1.2rem;text-shadow:0 2px 10px #000a;box-shadow:0 10px 26px #c9702a33;transition:transform .2s}
+.tile:hover{transform:translateY(-4px)}
+.tile.g1{background-image:linear-gradient(135deg,#ff8a3d,#ff4d2e)}.tile.g2{background-image:linear-gradient(135deg,#ffd36b,#ff9d3c)}
+.tile svg{position:absolute;left:0;top:0;width:100%;height:78%}
+.tile b{position:relative;z-index:1}
+.strip{display:flex;gap:10px;overflow-x:auto;scroll-snap-type:x mandatory;padding-bottom:10px}
+.card.sm{flex:none;width:160px;scroll-snap-align:start;padding:8px}
+.card.sm b{font-size:.9rem}
+footer{align-items:flex-end;padding-top:0;padding-bottom:calc(16px + env(safe-area-inset-bottom,0px));font-size:1rem;font-weight:800;text-align:center}
+header{background:linear-gradient(90deg,#2a2b2d 0,transparent 22%,transparent 78%,#2a2b2d 100%),linear-gradient(180deg,rgba(0,0,0,.12),rgba(0,0,0,.3)),var(--p5) center/cover no-repeat,#2a2b2d}
+footer{min-height:380px;background:linear-gradient(90deg,#060606 0,transparent 30%,transparent 70%,#060606 100%),var(--p6) center bottom/cover no-repeat,#060606}
+#hero{position:relative;isolation:isolate;background:#2a2b2d}
+#hero>.hero-bg{position:absolute;inset:0;z-index:0;opacity:0;pointer-events:none;background-position:center;background-size:cover;background-repeat:no-repeat;transition:opacity 1.2s ease-in-out}
+#hero>.hero-bg.is-active{opacity:1}
+#hero>*:not(.hero-bg){position:relative;z-index:1}
+@media(prefers-reduced-motion:reduce){#hero>.hero-bg{transition:none}}
 </style>
 </head>
 <body>
@@ -104,7 +148,7 @@ body{background-image:radial-gradient(circle at 15% 8%,#ff5e1e12,transparent 38%
 </header>
 <nav id="tabs" aria-label="الأقسام"></nav>
 <main id="menu"></main><div id="pg"></div>
-<footer>© Fanda Sushi | الإسكندرية، مصر | 11:00 ص إلى 02:00 ص</footer>
+<footer dir="auto"><strong>© Fanda Sushi | الإسكندرية، مصر | 11:00 ص إلى 02:00 ص</strong></footer>
 <button class="cartbar" id="cartbar"><span id="cbn"></span><span>عرض السلة</span><span id="cbt"></span></button>
 <div class="ov" id="ov"><div class="sheet" id="sheet" role="dialog" aria-modal="true"></div></div>
 
@@ -261,6 +305,7 @@ document.addEventListener("click",e=>{
   const t=e.target;
   if(t.id==="ov")return close();
   const c=t.closest("#tabs button"); if(c){cat=c.dataset.c;tabs();menu();return}
+  const ct=t.closest("[data-cat]"); if(ct){cat=ct.dataset.cat;tabs();menu();location.hash="#/menu";return}
   const card=t.closest(".card"); if(card)return detail(+card.dataset.id);
   if(t.closest("#cartbar"))return checkout();
   const q=t.closest("[data-q]");
@@ -280,7 +325,7 @@ document.addEventListener("keydown",e=>{if(e.key==="Escape")close()});
 const cardH=i=>`<button class="card" data-id="${i.id}">${art(i)}<span class="badge">${i.p?i.p+" pcs":"صوص"}</span><b>${esc(i.n)}</b><span class="ing">${i.c==="combo"?"":esc(i.ing.join(", "))}</span><span class="price">${i.pr} ج.م</span></button>`;
 const wrap=(t,b)=>`<section class="sec"><h2 style="margin-top:0">${t}</h2>${b}</section>`;
 const PG={
-home:()=>wrap("الأكثر طلباً",`<div class="grid">${[0,3,6].map(i=>cardH(items[i])).join("")}</div><p><a class="btn cta" href="#/menu">شاهد القائمة كاملة</a></p>`)+wrap("صوصات إضافية",`<div class="grid">${items.filter(i=>i.c==="extra").map(cardH).join("")}</div>`)+wrap("لماذا فاندا؟",`<div class="feat"><div><b>🍣 تنوع كبير</b><p>سوشي طازج وسوشي مقلي بنكهات متعددة.</p></div><div><b>🛵 توصيل</b><p>نوصّل داخل الإسكندرية حسب المنطقة.</p></div><div><b>💳 دفع مرن</b><p>كاش أو فودافون كاش أو فوري.</p></div></div>`),
+home:()=>TL()+wrap("الأكثر طلباً",`<div class="grid">${[0,3,6].map(i=>cardH(items[i])).join("")}</div><p><a class="btn cta" href="#/menu">شاهد القائمة كاملة</a></p>`)+wrap("صوصات إضافية",`<div class="grid">${items.filter(i=>i.c==="extra").map(cardH).join("")}</div>`)+wrap("لماذا فاندا؟",`<div class="feat"><div><b>🍣 تنوع كبير</b><p>سوشي طازج وسوشي مقلي بنكهات متعددة.</p></div><div><b>🛵 توصيل</b><p>نوصّل داخل الإسكندرية حسب المنطقة.</p></div><div><b>💳 دفع مرن</b><p>كاش أو فودافون كاش أو فوري.</p></div></div>`),
 offers:()=>wrap("العروض الخاصة",`<p class="txt">كومبوهات من 12 حتى 100 قطعة تناسب كل مناسبة.</p><div class="grid">${combos.map((c,i)=>cardH(items[i])).join("")}</div>`),
 about:()=>wrap("من نحن",`<p class="txt">فاندا سوشي مطعم سوشي في الإسكندرية، وشعارنا «السوشي كما يجب أن يكون». نقدم السوشي الطازج والمقلي وكومبوهات تبدأ من 12 قطعة وتصل إلى 100 قطعة للتجمعات والمناسبات.</p>`)+wrap("طرق الدفع",`<div class="feat"><div><b>الدفع عند الاستلام</b></div><div><b>فودافون كاش</b><p dir="ltr">${WALLET}</p></div><div><b>فوري</b></div></div>`),
 contact:()=>wrap("تواصل معنا",`<div class="feat"><a class="ct feat-a" href="https://wa.me/${WA}" target="_blank" rel="noopener"><div><b>💬 واتساب</b><p dir="ltr">+${WA}</p></div></a><a class="ct" href="tel:+${WA}"><div><b>📞 اتصل بنا</b><p dir="ltr">${WALLET}</p></div></a><div><b>🕚 ساعات العمل</b><p>يومياً من 11:00 ص إلى 02:00 ص</p></div></div>`)+wrap("مناطق التوصيل",`<div class="areas">${Object.entries(AREAS).map(([a,f])=>`<span>${a}: ${f} ج.م</span>`).join("")}</div>`)
@@ -299,12 +344,52 @@ function route(){
 const SC={"صوص ترياكي":"#7a3b12","صوص صويا":"#2b1a12","سبايسي مايو":"#ff9d5c","وسابي":"#8bc34a","جنزبيل":"#f3b8c0"};
 const nig=(x,f)=>`<g transform="translate(${x} 0)"><ellipse cx="30" cy="40" rx="24" ry="11" fill="#f5f5f0"/><path d="M6 36Q30 10 54 36Q30 31 6 36Z" fill="${f}"/><path d="M16 30l6 5M28 24l5 8M40 28l3 6" stroke="#fff" stroke-opacity=".5" stroke-width="1.5"/></g>`;
 const svg=(k,c)=>`<svg viewBox="0 0 100 60">`+(k==="maki"?[28,72].map(x=>`<circle cx="${x}" cy="30" r="22" fill="#161616"/><circle cx="${x}" cy="30" r="17" fill="#f5f5f0"/><circle cx="${x}" cy="30" r="8" fill="${c}"/><circle cx="${x-3}" cy="27" r="2.5" fill="#fff" opacity=".4"/>`).join(""):k==="nigiri"?nig(-2,"#ff7a4d")+nig(42,"#ff9d5c"):`<ellipse cx="50" cy="38" rx="28" ry="11" fill="#2a2a2a"/><ellipse cx="50" cy="34" rx="24" ry="8" fill="${c}"/><ellipse cx="42" cy="32" rx="8" ry="2" fill="#fff" opacity=".3"/>`)+`</svg>`;
-const art=i=>`<div class="art">${svg(i.c==="combo"?"nigiri":i.c==="extra"?"sauce":"maki",i.c==="extra"?SC[i.n]:i.c==="fried"?"#d9962b":"#ff7a4d")}</div>`;
+const K=[["salmon","#ff7a4d"],["shrimp","#ffb38a"],["crab","#f0705a"],["avocado","#86b84a"],["cucumber","#b9dc7f"],["cheese","#ffe08a"],["tuna","#c4322f"],["rice","#f3d98b"]];
+const col=g=>{const t=g.join(" ").toLowerCase(),r=K.filter(k=>t.includes(k[0])).map(k=>k[1]);return r.length?r.slice(0,3):["#ff7a4d"]};
+const dz=g=>{const t=g.join(" ").toLowerCase();return t.includes("teriyaki")?"#6b3410":t.includes("sriracha")?"#e63b2a":t.includes("spicy")?"#ffb457":null};
+const pc=(x,y,r,c,f,d)=>`<circle cx="${x}" cy="${y}" r="${r}" fill="${f?"#d9962b":"#1b1b1b"}"/>${f?`<circle cx="${x}" cy="${y}" r="${r-1.5}" fill="none" stroke="#f3c56b" stroke-width="2" stroke-dasharray="1 3"/>`:""}<circle cx="${x}" cy="${y}" r="${r*.76}" fill="#f7f4ec"/>${c.map((k,n)=>`<circle cx="${x+(n-(c.length-1)/2)*r*.34}" cy="${y+(n%2?r*.12:-r*.1)}" r="${r*.3}" fill="${k}"/>`).join("")}${d?`<path d="M${x-r*.8} ${y-r*.5}Q${x} ${y-r*1.1} ${x+r*.8} ${y-r*.4}" stroke="${d}" stroke-width="2.2" fill="none" stroke-linecap="round"/>`:""}<circle cx="${x-r*.4}" cy="${y-r*.45}" r="${r*.12}" fill="#fff" opacity=".6"/>`;
+const plate='<ellipse cx="60" cy="70" rx="54" ry="8" fill="#a85a1e" opacity=".15"/><ellipse cx="60" cy="42" rx="57" ry="33" fill="#fff" stroke="#f0d9bd"/>';
+const art=i=>{let b;
+  if(i.c==="extra")b=svg("sauce",SC[i.n]);
+  else if(i.c==="combo"){const P=["#ff7a4d","#ffb38a","#f0705a","#86b84a","#c4322f","#ffe08a"];b=`<svg viewBox="0 0 120 80">${plate}${P.map((k,n)=>pc(28+(n%3)*32,30+Math.floor(n/3)*26,13,[k,P[(n+2)%6]],n%2)).join("")}</svg>`}
+  else b=`<svg viewBox="0 0 120 80">${plate}${[[34,44,17],[62,38,18],[88,46,17]].map(p=>pc(p[0],p[1],p[2],col(i.ing),i.c==="fried",dz(i.ing))).join("")}</svg>`;
+  return `<div class="art">${b}</div>`};
+const TL=()=>`<section class="sec"><div class="tiles">
+<button class="tile" data-cat="combo" style="background-image:linear-gradient(transparent 40%,#000a),var(--p1)"><b>عروض الكومبو</b></button>
+<button class="tile" data-cat="raw" style="background-image:linear-gradient(transparent 40%,#000a),var(--p2)"><b>Raw Sushi</b></button>
+<button class="tile" data-cat="fried" style="background-image:linear-gradient(transparent 40%,#000a),var(--p3)"><b>Fried Sushi</b></button>
+<button class="tile" data-cat="extra" style="background-image:linear-gradient(transparent 40%,#000a),var(--p4)"><b>الصوصات</b></button></div></section>`+wrap("تشكيلتنا",`<div class="strip">${items.slice(9,29).map(i=>`<button class="card sm" data-id="${i.id}">${art(i)}<b>${esc(i.n)}</b></button>`).join("")}</div>`);
 $("#ha").innerHTML=svg("maki","#ff7a4d")+svg("nigiri")+svg("maki","#d9962b");
 menu();
 addEventListener("hashchange",route);
 $("#tcart").onclick=checkout;
 status();setInterval(status,60000);tabs();menu();bar();route();
+const heroCarousel=$("#hero");
+if(heroCarousel){
+  const heroCarouselSlides=["--p5","--p1","--p2","--p3","--p6"];
+  const heroCarouselLayers=[document.createElement("div"),document.createElement("div")];
+  heroCarouselLayers.forEach(layer=>{
+    layer.className="hero-bg";
+    layer.setAttribute("aria-hidden","true");
+    heroCarousel.insertBefore(layer,heroCarousel.firstChild);
+  });
+  const setHeroCarouselImage=(layerIndex,slideIndex)=>{
+    heroCarouselLayers[layerIndex].style.backgroundImage="linear-gradient(90deg,#2a2b2d 0,transparent 22%,transparent 78%,#2a2b2d 100%),linear-gradient(180deg,rgba(0,0,0,.12),rgba(0,0,0,.3)),var("+heroCarouselSlides[slideIndex]+")";
+  };
+  let heroCarouselSlide=0,heroCarouselLayer=0;
+  setHeroCarouselImage(0,0);
+  heroCarouselLayers[0].classList.add("is-active");
+  const reduceHeroMotion=window.matchMedia&&window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  if(!reduceHeroMotion)setInterval(()=>{
+    const nextSlide=(heroCarouselSlide+1)%heroCarouselSlides.length;
+    const nextLayer=1-heroCarouselLayer;
+    setHeroCarouselImage(nextLayer,nextSlide);
+    heroCarouselLayers[nextLayer].classList.add("is-active");
+    heroCarouselLayers[heroCarouselLayer].classList.remove("is-active");
+    heroCarouselLayer=nextLayer;
+    heroCarouselSlide=nextSlide;
+  },5000);
+}
 </script>
 </body>
 </html>
